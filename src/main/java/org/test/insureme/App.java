@@ -2,11 +2,11 @@ package org.test.insureme;
 
 import java.io.File;
 import java.io.IOException;
-//import java.sql.DriverManager;
+import java.sql.DriverManager;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-//import org.apache.hc.core5.util.Asserts;
+import org.apache.hc.core5.util.Asserts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -27,12 +27,11 @@ public class App
     	
     System.out.println("Script Started");	
        //initializing the web driver
-   
-    System.setProperty("webdriver.chrome.driver", "C:/Users/lenovo/eclipse-workspace/chromedriver/chromedriver.exe");
+   // System.setProperty("webdriver.chrome.driver", "/Users/shubham/Documents/softwares/chrome-driver/chromedriver");
     WebDriverManager.chromedriver().setup();
     //setting properties
     ChromeOptions chromeOptions = new ChromeOptions();
-//    chromeOptions.addArguments("--headless");
+    chromeOptions.addArguments("--headless");
     // open url
     System.out.println("Driver opening up the url in browser");	
     WebDriver driver = new ChromeDriver(chromeOptions);
@@ -63,17 +62,24 @@ public class App
     
     TakesScreenshot scrShot = ((TakesScreenshot)driver);
     
-    File srcFile = scrShot.getScreenshotAs(OutputType.FILE);    
- 
-    File destFile = new File("/var/lib/jenkins/workspace/insure-me-test-scripts/test-reports.jpg");    
+    File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
+    
+  //  File destFile = new File("/Users/shubham/Documents/test-reports.jpg");
+    File destFile = new File("/var/lib/jenkins/workspace/insure-me-test-scripts/test-reports.jpg");
+    
     
     FileUtils.copyFile(srcFile, destFile);
     
-    Thread.sleep(1000);   
+    Thread.sleep(1000);
+    
+ 
    
     driver.quit();
     
+    
     	
-        //System.out.println( "Hello World!" );
+    	
+    	
+        System.out.println( "Hello World!" );
     }
 }
