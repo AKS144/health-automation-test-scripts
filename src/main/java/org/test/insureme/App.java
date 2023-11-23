@@ -27,7 +27,7 @@ public class App
     	
     System.out.println("Script Started");	
        //initializing the web driver
-   // System.setProperty("webdriver.chrome.driver", "/Users/shubham/Documents/softwares/chrome-driver/chromedriver");
+   
     System.setProperty("webdriver.chrome.driver", "C:/Users/lenovo/eclipse-workspace/chromedriver/chromedriver.exe");
     WebDriverManager.chromedriver().setup();
     //setting properties
@@ -36,7 +36,7 @@ public class App
     // open url
     System.out.println("Driver opening up the url in browser");	
     WebDriver driver = new ChromeDriver(chromeOptions);
-    driver.get("https://www.facebook.com");	
+    driver.get("http://15.207.72.126:8081/contact.html");	
     
     //invole implicit waits to load the page
     driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -63,23 +63,17 @@ public class App
     
     TakesScreenshot scrShot = ((TakesScreenshot)driver);
     
-    File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
-    
-  //  File destFile = new File("/Users/shubham/Documents/test-reports.jpg");
-    File destFile = new File("/var/lib/jenkins/workspace/insure-me-test-scripts/test-reports.jpg");
-    
+    File srcFile = scrShot.getScreenshotAs(OutputType.FILE);    
+ 
+    File destFile = new File("/var/lib/jenkins/workspace/insure-me-test-scripts/test-reports.jpg");    
     
     FileUtils.copyFile(srcFile, destFile);
     
-    Thread.sleep(1000);
-    
- 
+    Thread.sleep(1000);   
    
     driver.quit();
     
-       	
-    
     	
-        System.out.println( "Hello World!" );
+        //System.out.println( "Hello World!" );
     }
 }
