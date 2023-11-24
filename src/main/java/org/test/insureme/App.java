@@ -65,8 +65,8 @@ public class App
     
     File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
     
-    File destFile = new File("/Users/lenovo/Documents/test-reports.jpg");
-    //File destFile = new File("/var/lib/jenkins/workspace/insure-me-test-scripts/test-reports.jpg");
+    //File destFile = new File("/Users/lenovo/Documents/test-reports.jpg");
+    File destFile = new File("/var/lib/jenkins/workspace/insureme-scripts-testimage/test-reports.jpg");
     
     
     FileUtils.copyFile(srcFile, destFile);
